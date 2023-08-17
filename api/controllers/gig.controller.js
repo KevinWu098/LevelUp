@@ -51,15 +51,24 @@ export const getGig = async (req, res, next) => {
 };
 
 export const getGigs = async (req, res, next) => {
-    try {
-        const gigs = await Gig.find();
+    const query = req.query;
 
-        if (!gigs) {
-            return next(createError(403, "No gigs found!"));
-        }
+    const filters = {
+        ...(query.userId && { userId: query.userId }),
+        ...(query.cat && { cat: query.cat }),
+        ...((query.min || query.max) && {
+            price: {
+                ...(query.min && { $gt: query.min }),
+                ...(query.max && { $lt: query.max }),
+            },
+        }),
+        ...(query.search && { title: { $regex: query.search, $options: "i" } }),
+    };
+    try {
+        const gigs = await Gig.find(filters).sort({ [query.sort]: -1 });
 
         res.status(200).send(gigs);
     } catch (error) {
-        console.log(error);
+        next(error);
     }
 };
