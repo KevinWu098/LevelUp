@@ -32,10 +32,21 @@
         justify-content: space-between;
         overflow: hidden;
 
-        .searchInput {
+        .searchContainer {
           display: flex;
           align-items: center;
           gap: 10px;
+          width: 100%;
+
+          .searchInput {
+            width: 100%;
+
+            .textInput {
+              width: 100%;
+              height: 3rem;
+            }
+          }
+
           img {
             width: 20px;
             height: 20px;
