@@ -13,16 +13,17 @@ import Orders from "./pages/orders/Orders";
 import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
+import Pay from "./pages/pay/Pay";
+import Success from "./pages/success/success";
 
 import {
   QueryClient,
   QueryClientProvider,
   useQuery,
-} from '@tanstack/react-query'
-
+} from "@tanstack/react-query";
 
 function App() {
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient();
 
   const Layout = () => {
     return (
@@ -82,6 +83,14 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/pay/:id",
+      element: <Pay />,
+    },
+    {
+      path: "/success",
+      element: <Success />,
     },
   ]);
 
