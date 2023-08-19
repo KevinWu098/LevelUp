@@ -46,6 +46,31 @@
           background-color: #1dbf73;
           cursor: pointer;
         }
+
+        .addFeatureButton {
+          display: flex;
+          align-items: center;
+          margin: 0;
+        }
+
+        .addedFeatures {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          flex-wrap: wrap;
+
+          .itemButton {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            width: fit-content;
+            margin: 0;
+            background-color: white;
+            color: gray;
+            font-weight: 400;
+            border: 1px solid gray;
+          }
+        }
       }
     }
   }
