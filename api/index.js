@@ -18,20 +18,23 @@ const port = 8080 || process.env.PORT;
 mongoose.set("strictQuery", false);
 
 const connect = async () => {
-    try {
-        await mongoose.connect(process.env.MONGODB_URI);
-        console.log("Connected to MongoDB!");
-    } catch (error) {
-        handleError(error);
-    }
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("Connected to MongoDB!");
+  } catch (error) {
+    handleError(error);
+  }
 };
 
 app.use(
-    cors({
-        origin: "http://localhost:5173",
-        credential: true,
-        credentials: true,
-    })
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://fiverrtutorial-client.onrender.com/",
+    ],
+    credential: true,
+    credentials: true,
+  })
 );
 app.use(express.json());
 app.use(cookieParser());
@@ -45,13 +48,13 @@ app.use("/api/messages", messageRoute);
 app.use("/api/reviews", reviewRoute);
 
 app.use((err, req, res, next) => {
-    const errorStatus = err.status || 500;
-    const errorMessage = err.message || "Something went wrong!";
+  const errorStatus = err.status || 500;
+  const errorMessage = err.message || "Something went wrong!";
 
-    return res.status(errorStatus).send(errorMessage);
+  return res.status(errorStatus).send(errorMessage);
 });
 
 app.listen(port, () => {
-    connect();
-    console.log(`Listening on port 8080`);
+  connect();
+  console.log(`Listening on port 8080`);
 });
