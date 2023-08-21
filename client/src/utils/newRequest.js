@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const newRequest = axios.create({
-    baseURL: "http://localhost:8080/api/",
-    withCredentials: true,
+  baseURL: "https://fiverrtutorial-server.onrender.com/api/",
+  withCredentials: true,
 });
 
 export default newRequest;

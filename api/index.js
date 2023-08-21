@@ -1,13 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import authRoute from "../api/routes/auth.route.js";
-import userRoute from "../api/routes/user.route.js";
-import gigRoute from "../api/routes/gig.route.js";
-import orderRoute from "../api/routes/order.route.js";
-import conversationRoute from "../api/routes/conversation.route.js";
-import messageRoute from "../api/routes/message.route.js";
-import reviewRoute from "../api/routes/review.route.js";
+import authRoute from "./routes/auth.route.js";
+import userRoute from "./routes/user.route.js";
+import gigRoute from "./routes/gig.route.js";
+import orderRoute from "./routes/order.route.js";
+import conversationRoute from "./routes/conversation.route.js";
+import messageRoute from "./routes/message.route.js";
+import reviewRoute from "./routes/review.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -30,12 +30,12 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://fiverrtutorial-client.onrender.com/",
+      "https://fiverrtutorial-client.onrender.com",
     ],
-    credential: true,
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 
