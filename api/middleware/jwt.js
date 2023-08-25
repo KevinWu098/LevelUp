@@ -2,20 +2,20 @@ import jwt from "jsonwebtoken";
 import createError from "../utils/createError.js";
 
 export const verifyToken = (req, res, next) => {
-    const token = req.cookies.accessToken;
+  const token = req.cookies.accessToken;
 
-    if (!token) {
-        return next(createError(401, "User is not authenticated!"));
+  if (!token) {
+    return next(createError(401, "User is not authenticated!"));
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, async (err, payload) => {
+    if (err) {
+      return next(createError(403, "Token is not valid!"));
     }
 
-    jwt.verify(token, process.env.JWT_SECRET, async (err, payload) => {
-        if (err) {
-            return next(createError(403, "Token is not valid!"));
-        }
+    req.userId = payload.id;
+    req.isSeller = payload.isSeller;
 
-        req.userId = payload.id;
-        req.isSeller = payload.isSeller;
-
-        next();
-    });
+    next();
+  });
 };
