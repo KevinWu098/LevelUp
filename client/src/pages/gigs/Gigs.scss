@@ -4,7 +4,7 @@
   justify-content: center;
 
   .container {
-    width: 1400px;
+    width: 90vw;
     padding: 30px 0px;
     display: flex;
     flex-direction: column;
@@ -30,6 +30,8 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 20px;
+      gap: 1rem;
+      flex-wrap: wrap;
 
       .left {
         display: flex;
@@ -38,18 +40,18 @@
         color: #555;
         font-weight: 300;
 
-        input{
+        input {
           padding: 5px;
           border: 1px solid lightgrey;
           border-radius: 5px;
           outline: none;
 
-          &::placeholder{
+          &::placeholder {
             color: #999;
           }
         }
 
-        button{
+        button {
           padding: 5px 10px;
           background-color: #1dbf73;
           color: white;
@@ -58,7 +60,6 @@
           border-radius: 5px;
           cursor: pointer;
         }
-
       }
 
       .right {

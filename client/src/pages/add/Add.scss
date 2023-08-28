@@ -3,8 +3,8 @@
   justify-content: center;
 
   .container {
-    width: 1400px;
-    padding: 50px 0px;
+    width: 90vw;
+    padding: 3rem 0;
 
     h1 {
       width: max-content;
@@ -43,7 +43,7 @@
           color: white;
           font-weight: 500;
           font-size: 18px;
-          background-color: #1dbf73;
+          background-color: var(--secondary-color);
           cursor: pointer;
         }
 
@@ -51,6 +51,7 @@
           display: flex;
           align-items: center;
           margin: 0;
+          gap: 0.5rem;
         }
 
         .addedFeatures {

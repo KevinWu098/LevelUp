@@ -8,13 +8,20 @@
     max-width: 760px;
     display: flex;
     align-items: center;
-    gap: 20px;
-    color: rgb(200, 200, 200);
+    gap: 1.5rem;
+    color: rgb(0, 0, 0);
     font-weight: 500;
 
-    img{
-      height: 50px;
+    span {
+      font-size: larger;
+    }
+
+    img {
+      flex: 1;
+      width: 100px;
+      height: 2rem;
       object-fit: contain;
+      filter: grayscale(100%) brightness(0%);
     }
   }
 }

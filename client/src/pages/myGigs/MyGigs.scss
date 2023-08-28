@@ -4,7 +4,7 @@
   color: #555;
 
   .container {
-    width: 1400px;
+    width: 90vw;
     padding: 50px 0px;
 
     .title {
@@ -30,11 +30,11 @@
           text-align: left;
         }
         td {
-
-          sup{
+          padding: 0 10px;
+          sup {
             font-size: 12px;
           }
-          
+
           .image {
             width: 50px;
             height: 25px;
@@ -45,7 +45,6 @@
             width: 20px;
             cursor: pointer;
           }
-
         }
         &:nth-child(even) {
           background-color: #1dbf730f;

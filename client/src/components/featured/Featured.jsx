@@ -14,7 +14,8 @@ function Featured() {
       <div className="container">
         <div className="left">
           <h1>
-            Find the perfect <span>freelance</span> services for your business
+            Find the ultimate <span>coaches, guides</span>, and{" "}
+            <span>tips</span> to rank up.
           </h1>
           <div className="search">
             <div className="searchContainer">
@@ -22,7 +23,7 @@ function Featured() {
               <div className="searchInput">
                 <input
                   type="text"
-                  placeholder='Try "build a mobile app"'
+                  placeholder='Try "Valorant Coaching"'
                   className="textInput"
                   onChange={(e) => setInput(e.target.value)}
                 />
@@ -32,15 +33,13 @@ function Featured() {
           </div>
           <div className="popular">
             <span>Popular:</span>
-            <button>Web Design</button>
-            <button>WordPress</button>
-            <button>Logo Design</button>
-            <button>AI Services</button>
+            <button>League of Legends</button>
+            <button>Overwatch</button>
+            <button>Valorant</button>
+            {/* <button>AI Services</button> */}
           </div>
         </div>
-        <div className="right">
-          <img src="./img/man.png" alt="" />
-        </div>
+        <div className="right">{/* <img src="./img/man.png" alt="" /> */}</div>
       </div>
     </div>
   );

@@ -1,4 +1,15 @@
+:root {
+  --primary-color: #7e0000;
+  --secondary-color: #cc0000;
+  --light-color: #fdf1f1;
+  --light-green-color: #1dbf730f;
+}
+
 * {
+  .app {
+    overflow-x: clip;
+  }
+
   .link {
     text-decoration: none;
     color: inherit;

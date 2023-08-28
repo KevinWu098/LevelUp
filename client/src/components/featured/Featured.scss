@@ -2,11 +2,11 @@
   height: 600px;
   display: flex;
   justify-content: center;
-  background-color: #013914;
+  background-color: var(--primary-color);
   color: white;
 
   .container {
-    width: 1400px;
+    width: 80vw;
     display: flex;
     align-items: center;
 
@@ -14,6 +14,7 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
+      padding-right: 30rem;
 
       h1 {
         font-size: 50px;
@@ -31,6 +32,7 @@
         align-items: center;
         justify-content: space-between;
         overflow: hidden;
+        width: 80%;
 
         .searchContainer {
           display: flex;
@@ -67,7 +69,7 @@
           width: 120px;
           height: 50px;
           border: none;
-          background-color: #1dbf73;
+          background-color: var(--secondary-color);
           color: white;
           align-self: flex-end;
           cursor: pointer;
@@ -78,6 +80,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        // flex-wrap: wrap;
 
         span {
           width: max-content;
@@ -99,7 +102,6 @@
       height: 100%;
       img {
         height: 100%;
-        object-fit: contain;
       }
     }
   }
