@@ -15,16 +15,16 @@ function Gigs() {
 
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["gigs"],
-    queryFn: () => {
+    queryFn: async () => {
       if (!search && !minRef.current.value && !maxRef.current.value) {
         var url = "/gigs";
       } else {
-        url = `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`;
+        url = `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}cat=`;
       }
 
-      return newRequest.get(url).then((res) => {
-        return res.data;
-      });
+      console.log(url);
+      const res = await newRequest.get(url);
+      return res.data;
     },
   });
 
@@ -35,7 +35,7 @@ function Gigs() {
 
   useEffect(() => {
     refetch();
-  }, [sort]);
+  }, [sort, search]);
 
   const apply = () => {
     refetch();
@@ -44,14 +44,26 @@ function Gigs() {
   return (
     <div className="gigs">
       <div className="container">
-        <span className="breadcrumbs">Liverr &gt; Graphics & Design &gt;</span>
-        <h1>AI Artists</h1>
-        <p>Explore the boundaries of art and technology with AI artists</p>
+        <span className="breadcrumbs">Level Up &gt; Services &gt;</span>
+        <h1>Services</h1>
+        <p>
+          Explore the countless options available on <span>Level Up</span>
+        </p>
         <div className="menu">
           <div className="left">
             <span>Budget</span>
-            <input ref={minRef} type="number" placeholder="min" />
-            <input ref={maxRef} type="number" placeholder="max" />
+            <input
+              ref={minRef}
+              type="number"
+              placeholder="min"
+              onChange={apply}
+            />
+            <input
+              ref={maxRef}
+              type="number"
+              placeholder="max"
+              onChange={apply}
+            />
             <button onClick={apply}>Apply</button>
           </div>
           <div className="right">

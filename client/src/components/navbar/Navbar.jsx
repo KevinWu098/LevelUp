@@ -8,6 +8,8 @@ function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const [input, setInput] = useState("");
+
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -35,14 +37,44 @@ function Navbar() {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/gigs?search=${input}`);
+  };
+
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
-        <div className="logo">
-          <Link className="link" to="/">
-            <span className="text">Level Up</span>
-          </Link>
-          <span className="dot">.</span>
+        <div className="logoSearch">
+          <div className="logo">
+            <Link className="link" to="/">
+              <span className="text">Level Up</span>
+            </Link>
+            <span className="dot">.</span>
+          </div>
+          {pathname !== "/" ? (
+            <div>
+              <form action="submit" onSubmit={(e) => handleSubmit(e)}>
+                <div className="search">
+                  <div className="searchContainer">
+                    <div className="searchInput">
+                      <input
+                        type="text"
+                        className="textInput"
+                        onChange={(e) => setInput(e.target.value)}
+                      />
+                    </div>
+                    <button
+                      onClick={(e) => handleSubmit(e)}
+                      className="buttonInput"
+                    >
+                      <img src="./img/search.png" alt="" />
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          ) : null}
         </div>
         <div className="links">
           <Link className="link" to="/gigs">
@@ -93,32 +125,32 @@ function Navbar() {
         <>
           <hr />
           <div className="menu">
-            <Link className="link menuLink" to="/">
-              Graphics & Design
+            <Link className="link menuLink" to="/gigs">
+              Fortnite
             </Link>
-            <Link className="link menuLink" to="/">
-              Video & Animation
+            <Link className="link menuLink" to="/gigs">
+              Overwatch
             </Link>
-            <Link className="link menuLink" to="/">
-              Writing & Translation
+            <Link className="link menuLink" to="/gigs">
+              Valorant
             </Link>
-            <Link className="link menuLink" to="/">
-              AI Services
+            <Link className="link menuLink" to="/gigs">
+              Aim Training
             </Link>
-            <Link className="link menuLink" to="/">
-              Digital Marketing
+            <Link className="link menuLink" to="/gigs">
+              Game Sense
             </Link>
-            <Link className="link menuLink" to="/">
-              Music & Audio
+            <Link className="link menuLink" to="/gigs">
+              Battle Royales
             </Link>
-            <Link className="link menuLink" to="/">
-              Programming & Tech
+            <Link className="link menuLink" to="/gigs">
+              VOD Reviews
             </Link>
-            <Link className="link menuLink" to="/">
-              Business
+            <Link className="link menuLink" to="/gigs">
+              Live Coaching
             </Link>
-            <Link className="link menuLink" to="/">
-              Lifestyle
+            <Link className="link menuLink" to="/gigs">
+              Tips & Tricks
             </Link>
           </div>
           <hr />

@@ -23,6 +23,11 @@
     p {
       color: #999;
       font-weight: 300;
+
+      span {
+        color: var(--secondary-color);
+        font-weight: 500;
+      }
     }
 
     .menu {
@@ -105,8 +110,8 @@
 
     .cards {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
+      gap: 2rem;
     }
   }
 }

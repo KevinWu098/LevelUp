@@ -9,6 +9,7 @@ function Featured() {
   const handleSubmit = () => {
     navigate(`/gigs?search=${input}`);
   };
+
   return (
     <div className="featured">
       <div className="container">
@@ -17,20 +18,22 @@ function Featured() {
             Find the ultimate <span>coaches, guides</span>, and{" "}
             <span>tips</span> to rank up.
           </h1>
-          <div className="search">
-            <div className="searchContainer">
-              <img src="./img/search.png" alt="" />
-              <div className="searchInput">
-                <input
-                  type="text"
-                  placeholder='Try "Valorant Coaching"'
-                  className="textInput"
-                  onChange={(e) => setInput(e.target.value)}
-                />
+          <form action="submit" onSubmit={handleSubmit}>
+            <div className="search">
+              <div className="searchContainer">
+                <img src="./img/search.png" alt="" />
+                <div className="searchInput">
+                  <input
+                    type="text"
+                    placeholder='Try "Valorant Coaching"'
+                    className="textInput"
+                    onChange={(e) => setInput(e.target.value)}
+                  />
+                </div>
               </div>
+              <button onClick={handleSubmit}>Search</button>
             </div>
-            <button onClick={handleSubmit}>Search</button>
-          </div>
+          </form>
           <div className="popular">
             <span>Popular:</span>
             <button>League of Legends</button>
