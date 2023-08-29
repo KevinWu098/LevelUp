@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.scss";
 import Featured from "../../components/featured/Featured";
 import TrustedBy from "../../components/trustedBy/TrustedBy";
@@ -8,11 +8,41 @@ import CatCard from "../../components/catCard/CatCard";
 import { cards /*projects*/ } from "../../data";
 
 function Home() {
+  const [slidesToShow, setSlidesToShow] = useState(5);
+
+  useEffect(() => {
+    // Update the number of slides to show based on the viewport width
+    const handleResize = () => {
+      if (window.innerWidth >= 1400) {
+        setSlidesToShow(5);
+      } else if (window.innerWidth >= 1200) {
+        setSlidesToShow(4);
+      } else if (window.innerWidth >= 1000) {
+        setSlidesToShow(3);
+      } else if (window.innerWidth >= 800) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(1);
+      }
+    };
+
+    // Initial setup
+    handleResize();
+
+    // Attach the resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="home">
       <Featured />
       <TrustedBy />
-      <Slide slidesToShow={4} arrowsScroll={1}>
+      <Slide slidesToShow={slidesToShow} arrowsScroll={1}>
         {cards.map((card) => (
           <CatCard key={card.id} card={card} />
         ))}
@@ -56,7 +86,7 @@ function Home() {
           </div> */}
         </div>
       </div>
-      <div className="explore">
+      {/* <div className="explore">
         <div className="container">
           <h1>Explore the marketplace</h1>
           <div className="items">
@@ -143,7 +173,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <div className="features dark">
         <div className="container">
           <div className="item">

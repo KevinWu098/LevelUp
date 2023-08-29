@@ -5,6 +5,7 @@
   border-radius: 5px;
   position: relative;
   cursor: pointer;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   img {
     width: 100%;
@@ -23,7 +24,7 @@
     position: absolute;
     top: 40px;
     left: 15px;
-    font-size:24px;
+    font-size: 24px;
     font-weight: 500;
   }
 }

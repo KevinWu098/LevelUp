@@ -14,7 +14,6 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
-      padding-right: 30rem;
 
       h1 {
         font-size: 50px;
@@ -94,6 +93,12 @@
           border-radius: 20px;
           background-color: transparent;
           font-size: 14px;
+          transition: background-color 0.5 ease;
+
+          &:hover {
+            background-color: white;
+            color: var(--primary-color);
+          }
         }
       }
     }
@@ -103,6 +108,12 @@
       img {
         height: 100%;
       }
+    }
+  }
+
+  @media (max-width: 980px) {
+    .container .right {
+      display: none;
     }
   }
 }

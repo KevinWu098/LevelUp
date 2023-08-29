@@ -125,32 +125,23 @@ function Navbar() {
         <>
           <hr />
           <div className="menu">
-            <Link className="link menuLink" to="/gigs">
-              Fortnite
+            <Link className="link menuLink" to="/gigs?search=League of Legends">
+              League of Legends
             </Link>
-            <Link className="link menuLink" to="/gigs">
+            <Link className="link menuLink" to="/gigs?search=Overwatch">
               Overwatch
             </Link>
-            <Link className="link menuLink" to="/gigs">
+            <Link className="link menuLink" to="/gigs?search=Valorant">
               Valorant
             </Link>
-            <Link className="link menuLink" to="/gigs">
+            <Link className="link menuLink" to="/gigs?search=Aim Training">
               Aim Training
             </Link>
-            <Link className="link menuLink" to="/gigs">
-              Game Sense
+            <Link className="link menuLink" to="/gigs?search=Fornite">
+              Fortnite
             </Link>
-            <Link className="link menuLink" to="/gigs">
-              Battle Royales
-            </Link>
-            <Link className="link menuLink" to="/gigs">
-              VOD Reviews
-            </Link>
-            <Link className="link menuLink" to="/gigs">
-              Live Coaching
-            </Link>
-            <Link className="link menuLink" to="/gigs">
-              Tips & Tricks
+            <Link className="link menuLink" to="/gigs?search=Apex Legends">
+              Apex Legends
             </Link>
           </div>
           <hr />

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Featured.scss";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Featured() {
   const [input, setInput] = useState("");
@@ -36,13 +37,20 @@ function Featured() {
           </form>
           <div className="popular">
             <span>Popular:</span>
-            <button>League of Legends</button>
-            <button>Overwatch</button>
-            <button>Valorant</button>
-            {/* <button>AI Services</button> */}
+            <Link className="link menuLink" to="/gigs?search=League of Legends">
+              <button>League of Legends</button>
+            </Link>
+            <Link className="link menuLink" to="/gigs?search=Overwatch">
+              <button>Overwatch</button>
+            </Link>
+            <Link className="link menuLink" to="/gigs?search=Valorant">
+              <button>Valorant</button>
+            </Link>
           </div>
         </div>
-        <div className="right">{/* <img src="./img/man.png" alt="" /> */}</div>
+        <div className="right">
+          <img src="./img/omen.png" alt="" />
+        </div>
       </div>
     </div>
   );
