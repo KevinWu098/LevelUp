@@ -24,7 +24,6 @@ export const login = async (req, res, next) => {
 
     if (!user) return next(createError(404, "User not found!"));
 
-    // bcrypt will not work on users/passwords created prior to it being in effect
     const isCorrect = bcrypt.compareSync(req.body.password, user.password);
     if (!isCorrect)
       return next(createError(400, "Wrong password or username!"));
@@ -38,14 +37,22 @@ export const login = async (req, res, next) => {
     );
 
     const { password, ...info } = user._doc;
-    res.cookie("accessToken", token, {
-      httpOnly: true,
-      sameSite: "none",
-      secure: true,
-    });
-    res.status(200).send(info);
-  } catch (error) {
-    next(error);
+    res
+      // .cookie("accessToken", token, {
+      //   httpOnly: true,
+      //   secure: true,
+      //   sameSite: "none",
+      //   domain: "https://fiverrtutorial-client.onrender.com",
+      // })
+      .cookie("accessToken", token, {
+        sameSite: "none",
+        secure: true,
+        domain: "fiverrtutorial-client.onrender.com",
+      })
+      .status(200)
+      .send(info);
+  } catch (err) {
+    next(err);
   }
 };
 

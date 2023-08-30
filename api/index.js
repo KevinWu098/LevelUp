@@ -32,7 +32,8 @@ app.use(
       "http://localhost:5173",
       "https://fiverrtutorial-client.onrender.com",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    // origin: "https://fiverrtutorial-client.onrender.com",
+    // methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );

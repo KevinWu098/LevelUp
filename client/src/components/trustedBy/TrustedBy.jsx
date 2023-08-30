@@ -6,9 +6,9 @@ const TrustedBy = () => {
     <div className="trustedBy">
       <div className="container">
         <span>Trusted by:</span>
-        <img src="../../../public/img/opgg.png" alt="op.gg" />
-        <img src="../../../public/img/blitz.png" alt="blitz.gg" />
-        <img src="../../../public/img/porofessor.png" alt="porofessor" />
+        <img src="/img/opgg.png" alt="op.gg" />
+        <img src="/img/blitz.png" alt="blitz.gg" />
+        <img src="/img/porofessor.png" alt="porofessor" />
       </div>
     </div>
   );

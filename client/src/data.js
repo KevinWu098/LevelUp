@@ -3,37 +3,37 @@ export const cards = [
     id: 1,
     title: "League Of Legends",
     desc: "MOBA",
-    img: "../public/img/leagueoflegends.jpg",
+    img: "/img/leagueoflegends.jpg",
   },
   {
     id: 2,
     title: "Overwatch",
     desc: "FPS",
-    img: "../public/img/overwatch.jpg",
+    img: "/img/overwatch.jpg",
   },
   {
     id: 3,
     title: "Valorant",
     desc: "FPS",
-    img: "../public/img/valorant.jpg",
+    img: "/img/valorant.jpg",
   },
   {
     id: 4,
     title: "Aim Training",
     desc: "Accuracy",
-    img: "../public/img/aim.png",
+    img: "/img/aim.png",
   },
   {
     id: 5,
     title: "Fortnite",
     desc: "Battle Royale",
-    img: "../public/img/fortnite.jpg",
+    img: "/img/fortnite.jpg",
   },
   {
     id: 6,
     title: "Apex Legends",
     desc: "Battle Royale",
-    img: "../public/img/apex.jpg",
+    img: "/img/apex.jpg",
   },
 ];
 
