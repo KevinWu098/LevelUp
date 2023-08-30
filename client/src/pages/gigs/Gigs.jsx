@@ -6,8 +6,8 @@ import newRequest from "../../utils/newRequest";
 import { useLocation } from "react-router-dom";
 
 function Gigs() {
-  const [sort, setSort] = useState("sales");
-  const [open, setOpen] = useState(false);
+  const [sort, setSort] = useState("createdAt");
+  // const [open, setOpen] = useState(false);
   const minRef = useRef();
   const maxRef = useRef();
 
@@ -22,16 +22,15 @@ function Gigs() {
         url = `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}cat=`;
       }
 
-      console.log(url);
       const res = await newRequest.get(url);
       return res.data;
     },
   });
 
-  const reSort = (type) => {
-    setSort(type);
-    setOpen(false);
-  };
+  // const reSort = (type) => {
+  //   setSort(type);
+  //   setOpen(false);
+  // };
 
   useEffect(() => {
     refetch();
@@ -66,7 +65,7 @@ function Gigs() {
             />
             <button onClick={apply}>Apply</button>
           </div>
-          <div className="right">
+          {/* <div className="right">
             <span className="sortBy">Sort By:</span>
             <span className="sortType">
               {sort === "sales" ? "Popular" : "Newest"}
@@ -81,7 +80,7 @@ function Gigs() {
                 )}
               </div>
             )}
-          </div>
+          </div> */}
         </div>
         <div className="cards">
           {isLoading

@@ -137,7 +137,7 @@ function Navbar() {
             <Link className="link menuLink" to="/gigs?search=Aim Training">
               Aim Training
             </Link>
-            <Link className="link menuLink" to="/gigs?search=Fornite">
+            <Link className="link menuLink" to="/gigs?search=Fortnite">
               Fortnite
             </Link>
             <Link className="link menuLink" to="/gigs?search=Apex Legends">

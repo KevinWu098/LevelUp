@@ -39,6 +39,10 @@
         td {
           padding: 10px;
 
+          .link {
+            text-decoration: underline;
+          }
+
           &:first-child {
             font-weight: 500;
           }
@@ -64,7 +68,7 @@
         }
 
         &.active {
-          background-color: var(--light-green-color);
+          background-color: var(--light-color);
         }
       }
     }

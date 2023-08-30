@@ -19,7 +19,7 @@ function Home() {
         setSlidesToShow(4);
       } else if (window.innerWidth >= 1000) {
         setSlidesToShow(3);
-      } else if (window.innerWidth >= 800) {
+      } else if (window.innerWidth >= 650) {
         setSlidesToShow(2);
       } else {
         setSlidesToShow(1);

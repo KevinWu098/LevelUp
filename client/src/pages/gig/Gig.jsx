@@ -42,7 +42,7 @@ function Gig() {
         <div className="container">
           <div className="left">
             <span className="breadcrumbs">
-              Fiverr {">"} Graphics & Design {">"}
+              Level Up {">"} Services {">"}
             </span>
             <h1>{data.title}</h1>
             {isLoadingUser ? (

@@ -26,7 +26,7 @@ function Featured() {
                 <div className="searchInput">
                   <input
                     type="text"
-                    placeholder='Try "Valorant Coaching"'
+                    placeholder='Try searching for "Valorant"'
                     className="textInput"
                     onChange={(e) => setInput(e.target.value)}
                   />
