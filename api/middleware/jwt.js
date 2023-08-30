@@ -21,16 +21,10 @@ export const verifyToken = (req, res, next) => {
   //   next();
   // });
 
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const { userId, isSeller } = req.query;
 
-  if (!userData) {
-    // Handle the case where user data is not found in local storage
-    return next(createError(401, "No user data!"));
-  }
-
-  // Attach user data to the request object
-  req.userId = userData._id;
-  req.isSeller = userData.isSeller;
+  req.userId = userId;
+  req.isSeller = isSeller;
 
   next();
 };
