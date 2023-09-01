@@ -60,8 +60,8 @@ const CheckoutForm = () => {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        // return_url: "https://fiverrtutorial-client.onrender.com/success",
-        return_url: "http://localhost:5173/success",
+        return_url: "https://fiverrtutorial-client.onrender.com/orders",
+        // return_url: "http://localhost:5173/orders",
       },
     });
 

@@ -36,6 +36,13 @@ export const getOrders = async (req, res, next) => {
       isCompleted: true,
     });
 
+    // // Filter every other order due to deployment crashing on `confirm` in the payment route. Previously, two orders were always created, but only one would be marked completed.
+    // const everyOtherOrder = [];
+    // for (let i = 0; i < orders.length; i += 2) {
+    //   everyOtherOrder.push(orders[i]);
+    // }
+
+    // res.status(200).send(everyOtherOrder);
     res.status(200).send(orders);
   } catch (error) {
     next(error);
@@ -65,6 +72,7 @@ export const intent = async (req, res, next) => {
     sellerId: gig.userId,
     price: gig.price,
     payment_intent: paymentIntent.id,
+    isCompleted: true, // Hard-coded due to deployment crashing on `confirm` in the payment route
   });
 
   await newOrder.save();

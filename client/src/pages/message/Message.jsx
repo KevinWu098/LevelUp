@@ -60,7 +60,7 @@ const Message = () => {
                 className={m.userId === currentUser._id ? "owner item" : "item"}
                 key={m._id}
               >
-                <img src="../../../public/img/noavatar.jpg" alt="" />
+                <img src="/img/noavatar.jpg" alt="" />
                 <p>{m.desc}</p>
               </div>
             ))}

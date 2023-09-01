@@ -31,6 +31,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://fiverrtutorial-client.onrender.com",
+      "https://levelup-yjrn.onrender.com",
     ],
     // origin: "https://fiverrtutorial-client.onrender.com",
     // methods: ["GET", "POST", "PUT", "DELETE"],
