@@ -2,8 +2,6 @@ import jwt from "jsonwebtoken";
 import createError from "../utils/createError.js";
 
 export const verifyToken = (req, res, next) => {
-  // Due to technical limitations on deployment through Render, tokens can't be used https://stackoverflow.com/a/71889837/22012164
-
   // const token = req.cookies.accessToken;
 
   // if (!token) {
@@ -20,11 +18,6 @@ export const verifyToken = (req, res, next) => {
 
   //   next();
   // });
-
-  const { userId, isSeller } = req.query;
-
-  req.userId = userId;
-  req.isSeller = isSeller;
 
   next();
 };

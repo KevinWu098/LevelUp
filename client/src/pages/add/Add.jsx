@@ -3,7 +3,7 @@ import "./Add.scss";
 import { INITIAL_STATE, gigReducer } from "../../reducers/gigReducer";
 import upload from "../../utils/upload";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import newRequest from "../../utils/newRequest";
+import newRequest from "../../utils/newRequest.js";
 import { useNavigate } from "react-router-dom";
 
 const Add = () => {
@@ -51,9 +51,14 @@ const Add = () => {
 
   const queryClient = useQueryClient();
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const mutation = useMutation({
     mutationFn: (gig) => {
-      return newRequest.post("/gigs", gig);
+      return newRequest.post(
+        `/gigs?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`,
+        gig
+      );
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["myGigs"]);

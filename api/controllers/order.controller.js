@@ -27,9 +27,13 @@ import Stripe from "stripe";
 
 export const getOrders = async (req, res, next) => {
   try {
+    const query = req.query;
+
     const orders = await Order.find({
-      ...(req.isSeller ? { sellerId: req.userId } : { buyerId: req.userId }),
-      isCompleted: true || false,
+      ...(query.isSeller == "true"
+        ? { sellerId: query.userId }
+        : { buyerId: query.userId }),
+      isCompleted: true,
     });
 
     res.status(200).send(orders);
@@ -51,11 +55,13 @@ export const intent = async (req, res, next) => {
     },
   });
 
+  const query = req.query;
+
   const newOrder = new Order({
     gigId: gig._id,
     img: gig.cover,
     title: gig.title,
-    buyerId: req.userId,
+    buyerId: query.userId,
     sellerId: gig.userId,
     price: gig.price,
     payment_intent: paymentIntent.id,
@@ -70,15 +76,9 @@ export const intent = async (req, res, next) => {
 
 export const confirm = async (req, res, next) => {
   try {
-    // Check if paymentIntent is provided in the request body
-    if (!req.body.paymentIntent) {
-      return res.status(400).json({ error: "Payment intent is required." });
-    }
-
-    // Find the order and update it to mark it as completed
-    const order = await Order.findOneAndUpdate(
+    const orders = await Order.findOneAndUpdate(
       {
-        payment_intent: req.body.paymentIntent,
+        paymentIntent: req.body.paymentIntent,
       },
       {
         $set: {
@@ -87,15 +87,8 @@ export const confirm = async (req, res, next) => {
       }
     );
 
-    // Check if the order exists
-    if (!order) {
-      return res.status(404).json({ error: "Order not found." });
-    }
-
-    res.status(200).json({ message: "Order has been confirmed.", order });
+    res.status(200).send("Order has been confirmed.");
   } catch (error) {
-    // Handle any errors that occur during the process
-    console.error(error);
     next(error);
   }
 };

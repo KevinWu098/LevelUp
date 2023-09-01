@@ -28,13 +28,13 @@ export const login = async (req, res, next) => {
     if (!isCorrect)
       return next(createError(400, "Wrong password or username!"));
 
-    // const token = jwt.sign(
-    //   {
-    //     id: user._id,
-    //     isSeller: user.isSeller,
-    //   },
-    //   process.env.JWT_SECRET
-    // );
+    const token = jwt.sign(
+      {
+        id: user._id,
+        isSeller: user.isSeller,
+      },
+      process.env.JWT_SECRET
+    );
 
     const { password, ...info } = user._doc;
     res
@@ -44,8 +44,11 @@ export const login = async (req, res, next) => {
       //   sameSite: "none",
       //   domain: "https://fiverrtutorial-client.onrender.com",
       // })
-      .status(200)
-      .send(info);
+      .cookie("accessToken", token, {
+        httpOnly: true,
+        secure: true,
+      });
+    res.status(200).send(info);
   } catch (err) {
     next(err);
   }

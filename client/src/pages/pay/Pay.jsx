@@ -15,11 +15,13 @@ const Pay = () => {
 
   const { id } = useParams();
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   useEffect(() => {
     const makeRequest = async () => {
       try {
         const res = await newRequest.post(
-          `/orders/create-payment-intent/${id}`
+          `/orders/create-payment-intent/${id}?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`
         );
 
         setClientSecret(res.data.clientSecret);

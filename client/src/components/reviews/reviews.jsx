@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
-import newRequest from "../../utils/newRequest";
+import newRequest from "../../utils/newRequest.js";
 import Review from "../review/review";
 import "./reviews.scss";
 
@@ -14,9 +14,14 @@ const Reviews = ({ gigId }) => {
       }),
   });
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const mutation = useMutation({
     mutationFn: (review) => {
-      return newRequest.post("/reviews", review);
+      return newRequest.post(
+        `/reviews?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`,
+        review
+      );
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["reviews"]);

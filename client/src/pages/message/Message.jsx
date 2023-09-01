@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import newRequest from "../../utils/newRequest";
+import newRequest from "../../utils/newRequest.js";
 import "./Message.scss";
 
 const Message = () => {
@@ -13,14 +13,21 @@ const Message = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["messages"],
     queryFn: () =>
-      newRequest.get(`/messages/${id}`).then((res) => {
-        return res.data;
-      }),
+      newRequest
+        .get(
+          `/messages/${id}?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`
+        )
+        .then((res) => {
+          return res.data;
+        }),
   });
 
   const mutation = useMutation({
     mutationFn: (message) => {
-      return newRequest.post(`/messages`, message);
+      return newRequest.post(
+        `/messages?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`,
+        message
+      );
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["messages"]);

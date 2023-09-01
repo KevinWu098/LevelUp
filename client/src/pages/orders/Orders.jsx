@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Orders.scss";
 import { useQuery } from "@tanstack/react-query";
-import newRequest from "../../utils/newRequest";
+import newRequest from "../../utils/newRequest.js";
 
 const Orders = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -12,9 +12,13 @@ const Orders = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
     queryFn: () =>
-      newRequest.get(`/orders`).then((res) => {
-        return res.data;
-      }),
+      newRequest
+        .get(
+          `/orders?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`
+        )
+        .then((res) => {
+          return res.data;
+        }),
   });
 
   const handleContact = async (order) => {
@@ -24,14 +28,19 @@ const Orders = () => {
     const id = sellerId + buyerId;
 
     try {
-      const res = await newRequest.get(`/conversations/single/${id}`);
+      const res = await newRequest.get(
+        `/conversations/single/${id}?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`
+      );
 
       navigate(`/message/${res.data.id}`);
     } catch (error) {
       if (error.response.status === 404) {
-        const res = await newRequest.post("/conversations/", {
-          to: currentUser.seller ? buyerId : sellerId,
-        });
+        const res = await newRequest.post(
+          "/conversations?userId=${currentUser._id}&isSeller=${currentUser.isSeller}",
+          {
+            to: currentUser.seller ? buyerId : sellerId,
+          }
+        );
 
         navigate(`/message/${res.data.id}`);
       }

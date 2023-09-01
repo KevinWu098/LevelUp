@@ -2,7 +2,7 @@ import React from "react";
 import "./GigCard.scss";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import newRequest from "../../utils/newRequest";
+import newRequest from "../../utils/newRequest.js";
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) return text;

@@ -1,15 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import newRequest from "../../utils/newRequest";
+import newRequest from "../../utils/newRequest.js";
 import "./review.scss";
 
 const Review = ({ review }) => {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const { isLoading, error, data } = useQuery({
     queryKey: [review.userId],
     queryFn: () =>
-      newRequest.get(`/users/${review.userId}`).then((res) => {
-        return res.data;
-      }),
+      newRequest
+        .get(
+          `/users/${review.userId}?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`
+        )
+        .then((res) => {
+          return res.data;
+        }),
   });
 
   return (
