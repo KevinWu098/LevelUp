@@ -78,7 +78,7 @@ export const confirm = async (req, res, next) => {
   try {
     const orders = await Order.findOneAndUpdate(
       {
-        paymentIntent: req.body.paymentIntent,
+        payment_intent: req.body.payment_intent,
       },
       {
         $set: {

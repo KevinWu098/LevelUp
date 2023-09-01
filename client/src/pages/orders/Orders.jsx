@@ -27,6 +27,8 @@ const Orders = () => {
 
     const id = sellerId + buyerId;
 
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
     try {
       const res = await newRequest.get(
         `/conversations/single/${id}?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`
@@ -36,9 +38,9 @@ const Orders = () => {
     } catch (error) {
       if (error.response.status === 404) {
         const res = await newRequest.post(
-          "/conversations?userId=${currentUser._id}&isSeller=${currentUser.isSeller}",
+          `/conversations?userId=${currentUser._id}&isSeller=${currentUser.isSeller}`,
           {
-            to: currentUser.seller ? buyerId : sellerId,
+            to: currentUser.isSeller ? buyerId : sellerId,
           }
         );
 
