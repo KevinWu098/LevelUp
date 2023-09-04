@@ -3,6 +3,12 @@ Level Up is a Fiverr-inspired gig-work marketplace aimed to connect talented coa
 
 <img width="1728" alt="Level Up Home" src="https://github.com/KevinWu098/LevelUp/assets/100006999/afcc4e6d-9ff8-4ed0-b4e6-71a8eaa76c02">
 
+## Built With
+- The MERN tech stack (MongoDB, Express, React, Node.js)
+- SCSS for styling
+- Cloudinary for image handling
+- Stripe for payment management
+  
 ## Introduction
 Level Up helps motivated players who need an extra bit of support to reach their next goal. Whether that goal is achieving a new career high or improving mechanics, Level Up has a vast community of talent to help you succeed. 
 
