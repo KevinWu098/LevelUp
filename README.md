@@ -30,3 +30,6 @@ See a live demo here: [Level Up](https://levelup-yjrn.onrender.com) (Demo accoun
 <img width="1728" alt="Single Service Page" src="https://github.com/KevinWu098/LevelUp/assets/100006999/09b168d4-9d91-45c9-8fd4-c5d8d27e7541">
 
 <img width="1728" alt="Orders Page" src="https://github.com/KevinWu098/LevelUp/assets/100006999/862b768c-10b9-494c-a6d8-2b76f0843923">
+
+## Credits
+This project was built following [this video](https://youtu.be/csUM7yfiaMw) by [Lama Dev](https://www.youtube.com/@LamaDev) as a fun way for me to further develop my comfortability with the MERN tech stack and adapt it to an area of ecommerce I'm interested in.
