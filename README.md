@@ -12,7 +12,7 @@ Level Up is a Fiverr-inspired gig-work marketplace aimed to connect talented coa
 ## Introduction
 Level Up helps motivated players who need an extra bit of support to reach their next goal. Whether that goal is achieving a new career high or improving mechanics, Level Up has a vast community of talent to help you succeed. 
 
-With rich categories spanning coaching, VOD reviews, and team sessios available, Level Up aims to offer great flexibility 
+With rich categories spanning coaching, VOD reviews, and team sessions available, Level Up aims to offer great flexibility 
 
 ## Demo
 See a live demo here: [Level Up](https://levelup-yjrn.onrender.com) (Demo account: username: sepuser, password: sepuser)
